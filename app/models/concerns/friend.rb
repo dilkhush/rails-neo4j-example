@@ -9,11 +9,11 @@ module Friend
   end
 
   def follow(user)
-  	Relationship.create(followed_id: id, follower_id: user.id)
+  	Relationship.create(followed_id: user.id, follower_id: id)
   end
 
   def unfollow(user)
-  	Relationship.where(followed_id: id, follower_id: user.id).last.destroy
+  	Relationship.where(followed_id: user.id, follower_id: id).last.destroy
   end
 
   def neighborhood_friends
