@@ -17,6 +17,6 @@ module Friend
   end
 
   def neighborhood_friends
-    Neo4j::User.where(my_id: self.id).last.friends_suggestion
+    Neo4j::User.where(my_id: self.id).last.friends_suggestion.map(&:my_id)
   end
 end

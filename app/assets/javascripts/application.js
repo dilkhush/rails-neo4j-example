@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var app = angular.module('app', [])
+app.controller('UsersCtrl', function ($scope, $http) {
+	$scope.get_users = function(){
+		$http.get('/users').then(function(responce){
+			$scope.users = responce.data;
+		})
+	}
+
+	$scope.selected_user = 0;
+
+	$scope.neighborhood_friends = function(){
+		$http.get('/users/'+$scope.selected_user+'/neighborhood_friends').then(function(responce){
+			$scope.suggestions = responce.data;
+		})
+	}
+})

@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+  <div class="panel-heading">User Suggestions</div>
+  <div class="panel-body">
+    <select ng-model="selected_user">
+		  <option ng-repeat="user in users"value={{user.id}}>{{user.name}}</option>
+		</select>
+		<button ng-click='neighborhood_friends()'>Get Neighborhood Friends</button>
+  </div>
+  <table class="table">
+    <tr>
+	    <th>#ID</th>
+	    <th>Email</th>
+	    <th>Name</th>
+	  </tr>
+	  <tr ng-repeat="user in suggestions">
+	    <td>{{user.id}}</td>
+	    <td>{{user.email}}</td>
+	    <td>{{user.name}}</td>
+	  </tr>
+  </table>
+</div>
