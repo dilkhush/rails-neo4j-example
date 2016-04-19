@@ -5,6 +5,10 @@
 		  <option ng-repeat="user in users"value={{user.id}}>{{user.name}}</option>
 		</select>
 		<button ng-click='neighborhood_friends()'>Get Neighborhood Friends</button>
+		<button ng-click='clear_users()'>Clear Friends</button>
+
+		<button ng-click='book_suggestions()'>Get Books</button>
+		<button ng-click='clear_books()'>Books Clear</button>
   </div>
   <table class="table">
     <tr>
@@ -16,6 +20,19 @@
 	    <td>{{user.id}}</td>
 	    <td>{{user.email}}</td>
 	    <td>{{user.name}}</td>
+	  </tr>
+  </table>
+
+  <table class="table">
+    <tr>
+	    <th>#ID</th>
+	    <th>Name</th>
+	    <th>Description</th>
+	  </tr>
+	  <tr ng-repeat="book in books">
+	    <td>{{book.id}}</td>
+	    <td>{{book.name}}</td>
+	    <td>{{book.description}}</td>
 	  </tr>
   </table>
 </div>

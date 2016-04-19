@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :users, only: [:index] do
-    get :neighborhood_friends
+    get :neighborhood_friends, :books_suggestions
   end
 
   # Example resource route with options:

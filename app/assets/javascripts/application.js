@@ -30,4 +30,18 @@ app.controller('UsersCtrl', function ($scope, $http) {
 			$scope.suggestions = responce.data;
 		})
 	}
+
+	$scope.book_suggestions = function(){
+	  $http.get('/users/'+$scope.selected_user+'/books_suggestions').then(function(responce){
+			$scope.books = responce.data;
+		})
+	}
+
+	$scope.clear_books = function(){
+		$scope.books = []
+	}
+
+	$scope.clear_users = function(){
+		$scope.suggestions = []
+	}
 })

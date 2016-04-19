@@ -10,6 +10,10 @@ module Neo4j
     	followings.followings.to_a - followings.to_a
     end
 
+    def books_suggestion
+      followings.fav_books.to_a - fav_books.to_a
+    end
+
     class << self
 	    def custom_find_or_create(id)
 	    	user = Neo4j::User.where(user_id: id).first
