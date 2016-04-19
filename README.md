@@ -1,5 +1,5 @@
 This an example for application using 2 databases
- 1. Sqlite
+ 1. Mysql (Relational DB)
  2. Neo4j (GraphDB)
 
 In this appplication you get the suggestions of the freinds and books.
