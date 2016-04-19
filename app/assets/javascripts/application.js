@@ -22,7 +22,8 @@ app.controller('UsersCtrl', function ($scope, $http) {
 			$scope.users = responce.data;
 		})
 	}
-
+  $scope.books = []
+  $scope.suggestions = []
 	$scope.selected_user = 0;
 
 	$scope.neighborhood_friends = function(){

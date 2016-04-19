@@ -10,9 +10,17 @@ unless Tag.first
   hashs = tags.collect{ |tag| { name: tag } }
   Tag.create(hashs)
 end
-
+unless User.first
+  hashes = 1000.times.collect do
+    {
+      name: Faker::Name.name,
+      email: Faker::Internet.email
+    }
+  end
+  User.create(hashes)
+end
 unless Book.first
-  hashes = 100.times.collect do
+  hashes = 1000.times.collect do
   	{
   	  title: Faker::Book.title,
       description: Faker::Lorem.sentence,
@@ -20,4 +28,25 @@ unless Book.first
     }
   end
   Book.create(hashes)
+end
+unless Relationship.first
+  user = User.first
+  User.last(50).each do |u|
+    user.follow(u) if u != user
+  end
+  user.following_users.each do |user|
+    50.times do
+      u = User.where(id: rand(1000)).first
+      user.follow(u) if u != user
+    end
+  end
+end
+
+unless BookUser.first
+  user = User.first
+  books = Book.all
+  user.books = books.sample(20)
+  user.following_users.each do |u|
+    u.books = books.sample(20)
+  end
 end
