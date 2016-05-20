@@ -36,5 +36,6 @@ Example:
   D's fav books are B2, B5
 then A will get B3, B4 in suggestions bacase his friends B abd E also mark these as fav books.
 
-
+## To Contribute
+ Fork the repo and give me a pull request
 
